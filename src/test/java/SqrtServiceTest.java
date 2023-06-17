@@ -1,6 +1,6 @@
 import org.example.cyclesNewJava.service.SqrtService;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class SqrtServiceTest {
 
@@ -10,7 +10,17 @@ public class SqrtServiceTest {
 
         int expected = 5;
         int actual = service.calcSqrt(25);
-
-        Assertions
+        Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldCalcInexact() {
+        SqrtService service = new SqrtService();
+
+        int expected = 6;
+        int actual = service.calcSqrt(27);
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
+
